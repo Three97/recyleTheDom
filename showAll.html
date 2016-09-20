@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="demo">
+<head>
+    <meta charset="UTF-8">
+    <title>Infinite Scroll Demo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="paintData.js"></script>
+    <script src="demoAngular.js"></script>
+</head>
+<body>
+    <div id="buttonGroup" ng-controller="ButtonController as buttons">
+        <button ng-click="buttons.showAll()" class="btn btn-default">Show all</button>
+        <button ng-click="buttons.speedBoost()" class="btn btn-primary">Speed Boost</button>
+    </div>
+    <table class="table table-condensed table-striped table-hover" ng-controller="DemoController as paint">
+        <thead>
+            <tr>
+                <th>SKU</th>
+                <th>Item Name</th>
+                <th>Powder SKU</th>
+                <th>Metal SKU</th>
+                <th>MD</th>
+                <th>FMD</th>
+                <th>DOH</th>
+                <th>QOH</th>
+                <th>ROP</th>
+                <th>BOQ</th>
+                <th>Oldest BOQ</th>
+                <th>Batch Size</th>
+                <th>Metal Qty</th>
+                <th>Staged Metal</th>
+                <th>Line</th>
+                <th>Density</th>
+                <th>Max Density</th>
+                <th>Minutes</th>
+                <th>Linear Feet</th>
+                <th>PO Qty</th>
+                <th>PO #</th>
+                <th>PO #</th>
+                <th>PO #</th>
+                <th>Oldest</th>
+                <th>In Paint</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in paint.data">
+                <td>{{row.Sku}}</td>
+                <td>{{row.ItemName}}</td>
+                <td>{{row.PaintSku}}</td>
+                <td>{{row.MetalSku}}</td>
+                <td>{{row.MonthlyDemand}}</td>
+                <td>{{row.ForecastedMonthlyDemand}}</td>
+                <td>{{row.DaysOnHand}}</td>
+                <td>{{row.QuantityOnHand}}</td>
+                <td>{{row.ReorderPointAsDays}}</td>
+                <td>{{row.BackorderQuantity}}</td>
+                <td>{{row.OldestBackorderDate}}</td>
+                <td>{{row.BatchSize}}</td>
+                <td>{{row.MetalQuantity}}</td>
+                <td>{{row.MetalStagedQuantity}}</td>
+                <td>{{row.Line}}</td>
+                <td>{{row.PaintDensity}}</td>
+                <td>{{row.PaintDensityMax}}</td>
+                <td>{{row.PaintMinutesOfWork}}</td>
+                <td>{{row.PaintLinearFeetOfWork}}</td>
+                <td>0</td>
+                <td>dummy</td>
+                <td>dummy</td>
+                <td>dummy</td>
+                <td>0</td>
+                <td>0</td>
+                <td><img src="plusImg.png" alt="plus sign"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="infiniteScroll.js"></script>
+</body>
+</html>
